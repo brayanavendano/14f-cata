@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>¿Quieres ser mi San Valentín?</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-shadow: 2px 2px 8px #800020;
+    }
+    .container {
+      text-align: center;
+      background: rgba(0,0,0,0.45);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 350px;
+      user-select: none;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    button {
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 10px 30px;
+      margin: 10px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 2px 3px 6px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+      outline: none;
+      position: relative;
+    }
+    #yesBtn {
+      background-color: #e75480;
+      color: white;
+      overflow: visible;
+    }
+    #noBtn {
+      background-color: #777;
+      color: white;
+    }
+    #stars {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      font-size: 2rem;
+      color: yellow;
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+      transition: opacity 0.3s ease;
+    }
+    .enlarged {
+      transform: scale(1.5);
+    }
+    #congrats {
+      display: none;
+      background-color: #6a0dad;
+      border-radius: 10px;
+      padding: 30px;
+      color: white;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      white-space: pre-line;
+      user-select: none;
+      max-width: 350px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="main">
+  <h1>¿Quieres ser mi San Valentín?</h1>
+  <button id="yesBtn">
+    Sí
+    <span id="stars">★✨💫</span>
+  </button>
+  <button id="noBtn">No</button>
+</div>
+
+<div id="congrats">
+Felicidades
+
+Sabía que ibas a decir que sí 🫦
+Te espero el 14 de febrero a las 20:00 para hacer una videollamada para celebrar nuestro día especial ❤️
+
+Te quiero mucho bb 🫰🏻
+</div>
+
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const stars = document.getElementById('stars');
+  const main = document.getElementById('main');
+  const congrats = document.getElementById('congrats');
+
+  noBtn.addEventListener('click', () => {
+    yesBtn.classList.add('enlarged');
+    stars.style.opacity = '1';
+
+    setTimeout(() => {
+      yesBtn.classList.remove('enlarged');
+      stars.style.opacity = '0';
+    }, 1000);
+  });
+
+  yesBtn.addEventListener('click', () => {
+    main.style.display = 'none';
+    congrats.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
